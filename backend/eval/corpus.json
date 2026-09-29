@@ -1,0 +1,12 @@
+{
+  "computer-vision": {
+    "files": [
+      "Computer_Vision_Unit_1_Complete_Notes.pdf",
+      "Computer_Vision_Unit_2_Quick_Revision.pdf",
+      "Computer_Vision_Unit_3_Complete_Notes.pdf"
+    ]
+  },
+  "mlops": {
+    "youtube": ["https://www.youtube.com/watch?v=tVskbekONlw"]
+  }
+}

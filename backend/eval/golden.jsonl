@@ -1,0 +1,81 @@
+{"id": "cv-01", "q": "What is computer vision?", "collection": "computer-vision", "answerable": true, "expect": [{"doc": "Unit_1", "pages": [1]}], "kw": ["visual|image"]}
+{"id": "cv-02", "q": "What are the stages of a computer vision system?", "collection": "computer-vision", "answerable": true, "expect": [{"doc": "Unit_1", "pages": [1, 2]}], "kw": ["acquisition", "feature extraction"]}
+{"id": "cv-03", "q": "What does image pre-processing include?", "collection": "computer-vision", "answerable": true, "expect": [{"doc": "Unit_1", "pages": [1]}], "kw": ["noise"]}
+{"id": "cv-04", "q": "How is object detection different from image classification?", "collection": "computer-vision", "answerable": true, "expect": [{"doc": "Unit_1", "pages": [2]}], "kw": ["bounding box|location|where"]}
+{"id": "cv-05", "q": "What are the two main types of image segmentation?", "collection": "computer-vision", "answerable": true, "expect": [{"doc": "Unit_1", "pages": [2]}], "kw": ["semantic", "instance"]}
+{"id": "cv-06", "q": "Compare traditional computer vision with deep learning based vision.", "collection": "computer-vision", "answerable": true, "expect": [{"doc": "Unit_1", "pages": [2]}], "kw": ["manual", "learn"]}
+{"id": "cv-07", "q": "How is computer vision used in healthcare?", "collection": "computer-vision", "answerable": true, "expect": [{"doc": "Unit_1", "pages": [2]}], "kw": ["x-ray|mri|ct|scan"]}
+{"id": "cv-08", "q": "What is OCR and where is it used?", "collection": "computer-vision", "answerable": true, "expect": [{"doc": "Unit_1", "pages": [3]}], "kw": ["text"]}
+{"id": "cv-09", "q": "What challenges make surveillance video analysis difficult?", "collection": "computer-vision", "answerable": true, "expect": [{"doc": "Unit_1", "pages": [3]}], "kw": ["occlusion|lighting|privacy|crowd"]}
+{"id": "cv-10", "q": "How are industrial cameras used in manufacturing?", "collection": "computer-vision", "answerable": true, "expect": [{"doc": "Unit_1", "pages": [3]}], "kw": ["defect|scratch|quality|inspect"]}
+{"id": "cv-11", "q": "What does bit depth mean?", "collection": "computer-vision", "answerable": true, "expect": [{"doc": "Unit_1", "pages": [4]}], "kw": ["bits"]}
+{"id": "cv-12", "q": "How many intensity levels can an 8-bit grayscale image represent?", "collection": "computer-vision", "answerable": true, "expect": [{"doc": "Unit_1", "pages": [4]}], "kw": ["256"]}
+{"id": "cv-13", "q": "What is the difference between raster and vector images?", "collection": "computer-vision", "answerable": true, "expect": [{"doc": "Unit_1", "pages": [4, 5]}], "kw": ["pixel", "geometric|shape|path"]}
+{"id": "cv-14", "q": "Which image format supports transparency with lossless compression?", "collection": "computer-vision", "answerable": true, "expect": [{"doc": "Unit_1", "pages": [5]}], "kw": ["png"]}
+{"id": "cv-15", "q": "Why is JPEG unsuitable when exact pixels must be preserved?", "collection": "computer-vision", "answerable": true, "expect": [{"doc": "Unit_1", "pages": [5]}], "kw": ["lossy"]}
+{"id": "cv-16", "q": "What is TIFF used for?", "collection": "computer-vision", "answerable": true, "expect": [{"doc": "Unit_1", "pages": [6]}], "kw": ["scan|professional|publishing"]}
+{"id": "cv-17", "q": "What is the main limitation of GIF?", "collection": "computer-vision", "answerable": true, "expect": [{"doc": "Unit_1", "pages": [6]}], "kw": ["color|colour|palette"]}
+{"id": "cv-18", "q": "How should I structure a 10 mark answer?", "collection": "computer-vision", "answerable": true, "expect": [{"doc": "Unit_1", "pages": [7]}], "kw": ["definition", "conclusion"]}
+{"id": "cv-19", "q": "What does a resolution of 1920 x 1080 mean?", "collection": "computer-vision", "answerable": true, "expect": [{"doc": "Unit_1", "pages": [4]}], "kw": ["1920", "1080"]}
+{"id": "cv-20", "q": "What is histogram equalization and what is its limitation?", "collection": "computer-vision", "answerable": true, "expect": [{"doc": "Unit_2", "pages": [1]}], "kw": ["contrast", "noise"]}
+{"id": "cv-21", "q": "How are point, line and edge detection different?", "collection": "computer-vision", "answerable": true, "expect": [{"doc": "Unit_2", "pages": [1]}], "kw": ["isolated", "line|linear", "boundar|edge"]}
+{"id": "cv-22", "q": "How does Otsu thresholding choose its threshold?", "collection": "computer-vision", "answerable": true, "expect": [{"doc": "Unit_2", "pages": [1, 4]}], "kw": ["automatic", "histogram"]}
+{"id": "cv-23", "q": "What do the higher bit planes and lower bit planes contain?", "collection": "computer-vision", "answerable": true, "expect": [{"doc": "Unit_2", "pages": [1]}], "kw": ["high", "low"]}
+{"id": "cv-24", "q": "What is an active contour or snake?", "collection": "computer-vision", "answerable": true, "expect": [{"doc": "Unit_2", "pages": [2]}], "kw": ["deformable|curve"]}
+{"id": "cv-25", "q": "How does region growing work and what are its limits?", "collection": "computer-vision", "answerable": true, "expect": [{"doc": "Unit_2", "pages": [2]}], "kw": ["seed"]}
+{"id": "cv-26", "q": "What is watershed segmentation and what is its main problem?", "collection": "computer-vision", "answerable": true, "expect": [{"doc": "Unit_2", "pages": [2]}], "kw": ["over-segmentation|oversegmentation|over segmentation"]}
+{"id": "cv-27", "q": "What is the difference between region splitting and merging?", "collection": "computer-vision", "answerable": true, "expect": [{"doc": "Unit_2", "pages": [2]}], "kw": ["top-down|top down", "bottom-up|bottom up"]}
+{"id": "cv-28", "q": "What does graph-based segmentation do?", "collection": "computer-vision", "answerable": true, "expect": [{"doc": "Unit_2", "pages": [2]}], "kw": ["graph", "node"]}
+{"id": "cv-29", "q": "What does the minimum filter do to bright regions?", "collection": "computer-vision", "answerable": true, "expect": [{"doc": "Unit_2", "pages": [2]}], "kw": ["shrink|suppress"]}
+{"id": "cv-30", "q": "Which filter reduces noise by smoothing an image?", "collection": "computer-vision", "answerable": true, "expect": [{"doc": "Unit_2", "pages": [3]}], "kw": ["low-pass|low pass"]}
+{"id": "cv-31", "q": "What is the difference between Sobel and Laplacian?", "collection": "computer-vision", "answerable": true, "expect": [{"doc": "Unit_2", "pages": [3, 4]}], "kw": ["first-order|first order", "second-order|second order"]}
+{"id": "cv-32", "q": "What do low and high frequencies represent in the Fourier transform?", "collection": "computer-vision", "answerable": true, "expect": [{"doc": "Unit_2", "pages": [3]}], "kw": ["edge|detail", "slow|broad"]}
+{"id": "cv-33", "q": "Which noise models are commonly used?", "collection": "computer-vision", "answerable": true, "expect": [{"doc": "Unit_2", "pages": [3]}], "kw": ["gaussian", "salt"]}
+{"id": "cv-34", "q": "How is image restoration different from enhancement?", "collection": "computer-vision", "answerable": true, "expect": [{"doc": "Unit_2", "pages": [3]}], "kw": ["degradation|original"]}
+{"id": "cv-35", "q": "Explain local versus global features.", "collection": "computer-vision", "answerable": true, "expect": [{"doc": "Unit_2", "pages": [4]}], "kw": ["keypoint|local", "whole|overall"]}
+{"id": "cv-36", "q": "What is the order of feature detection, description and matching?", "collection": "computer-vision", "answerable": true, "expect": [{"doc": "Unit_2", "pages": [4]}], "kw": ["detection", "description", "matching"]}
+{"id": "cv-37", "q": "Which segmentation method is good for separating touching objects?", "collection": "computer-vision", "answerable": true, "expect": [{"doc": "Unit_2", "pages": [2, 4]}], "kw": ["watershed"]}
+{"id": "cv-38", "q": "What does salt-and-pepper noise look like?", "collection": "computer-vision", "answerable": true, "expect": [{"doc": "Unit_2", "pages": [3]}], "kw": ["bright", "dark"]}
+{"id": "cv-39", "q": "What is structure from motion?", "collection": "computer-vision", "answerable": true, "expect": [{"doc": "Unit_3", "pages": [1]}], "kw": ["3d", "camera"]}
+{"id": "cv-40", "q": "What are the steps in the structure from motion pipeline?", "collection": "computer-vision", "answerable": true, "expect": [{"doc": "Unit_3", "pages": [1]}], "kw": ["ransac|outlier", "triangulat"]}
+{"id": "cv-41", "q": "What is an epipole?", "collection": "computer-vision", "answerable": true, "expect": [{"doc": "Unit_3", "pages": [2]}], "kw": ["camera cent"]}
+{"id": "cv-42", "q": "What is the difference between calibrated and uncalibrated cameras?", "collection": "computer-vision", "answerable": true, "expect": [{"doc": "Unit_3", "pages": [2]}], "kw": ["intrinsic"]}
+{"id": "cv-43", "q": "How does RANSAC reject outliers?", "collection": "computer-vision", "answerable": true, "expect": [{"doc": "Unit_3", "pages": [2, 3]}], "kw": ["inlier", "random"]}
+{"id": "cv-44", "q": "What is image-based rendering and what are its components?", "collection": "computer-vision", "answerable": true, "expect": [{"doc": "Unit_3", "pages": [3]}], "kw": ["warp", "interpolation"]}
+{"id": "cv-45", "q": "What are the challenges in image stitching?", "collection": "computer-vision", "answerable": true, "expect": [{"doc": "Unit_3", "pages": [4]}], "kw": ["parallax|overlap|seam|exposure"]}
+{"id": "cv-46", "q": "Compare nearest neighbor, bilinear and bicubic interpolation.", "collection": "computer-vision", "answerable": true, "expect": [{"doc": "Unit_3", "pages": [4, 5]}], "kw": ["16"]}
+{"id": "cv-47", "q": "How many neighbouring pixels does bicubic interpolation use?", "collection": "computer-vision", "answerable": true, "expect": [{"doc": "Unit_3", "pages": [5, 7]}], "kw": ["16"]}
+{"id": "cv-48", "q": "What is inpainting?", "collection": "computer-vision", "answerable": true, "expect": [{"doc": "Unit_3", "pages": [5]}], "kw": ["fill|damaged|unwanted|missing"]}
+{"id": "cv-49", "q": "How do I distinguish camera motion from object motion?", "collection": "computer-vision", "answerable": true, "expect": [{"doc": "Unit_3", "pages": [2, 6, 7]}], "kw": ["object"]}
+{"id": "cv-50", "q": "How does structure from motion differ from image stitching?", "collection": "computer-vision", "answerable": true, "expect": [{"doc": "Unit_3", "pages": [6]}], "kw": ["3d", "panorama|2d|composite"]}
+{"id": "cv-51", "q": "What is the difference between image warping and pixel interpolation?", "collection": "computer-vision", "answerable": true, "expect": [{"doc": "Unit_3", "pages": [3, 7]}], "kw": ["warp", "interpolat"]}
+{"id": "cv-52", "q": "What causes missing regions in an image?", "collection": "computer-vision", "answerable": true, "expect": [{"doc": "Unit_3", "pages": [5]}], "kw": ["occlusion|damage|corrupt|removal"]}
+{"id": "cv-53", "q": "Where is RANSAC used in this unit?", "collection": "computer-vision", "answerable": true, "expect": [{"doc": "Unit_3", "pages": [3]}], "kw": ["stitching|motion|reconstruction"]}
+{"id": "cv-54", "q": "how do i make a blurry noisy photo look smoother", "collection": "computer-vision", "answerable": true, "expect": [{"doc": "Unit_2", "pages": [3]}], "kw": ["low-pass|low pass|smooth"]}
+{"id": "cv-55", "q": "what makes one big picture out of several overlapping photos", "collection": "computer-vision", "answerable": true, "expect": [{"doc": "Unit_3", "pages": [4]}], "kw": ["stitch"]}
+{"id": "cv-56", "q": "why do my enlarged images look blocky", "collection": "computer-vision", "answerable": true, "expect": [{"doc": "Unit_3", "pages": [4]}], "kw": ["nearest|pixelat|blocky"]}
+{"id": "cv-57", "q": "which format should i use for a logo with a see-through background", "collection": "computer-vision", "answerable": true, "expect": [{"doc": "Unit_1", "pages": [5]}], "kw": ["png"]}
+{"id": "cv-58", "q": "how does a self driving car see the road", "collection": "computer-vision", "answerable": true, "expect": [{"doc": "Unit_1", "pages": [3]}], "kw": ["pedestrian|lane|traffic|vehicle"]}
+{"id": "un-01", "q": "How does the YOLO object detection architecture work?", "collection": "computer-vision", "answerable": false, "expect": [], "kw": []}
+{"id": "un-02", "q": "What are the hysteresis thresholds in the Canny edge detector?", "collection": "computer-vision", "answerable": false, "expect": [], "kw": []}
+{"id": "un-03", "q": "Explain how SIFT computes its 128-dimensional descriptor.", "collection": "computer-vision", "answerable": false, "expect": [], "kw": []}
+{"id": "un-04", "q": "What is the capital of France?", "collection": "computer-vision", "answerable": false, "expect": [], "kw": []}
+{"id": "un-05", "q": "Write a Python function that applies a bilateral filter.", "collection": "computer-vision", "answerable": false, "expect": [], "kw": []}
+{"id": "un-06", "q": "What is backpropagation and how does gradient descent update the weights?", "collection": "computer-vision", "answerable": false, "expect": [], "kw": []}
+{"id": "un-07", "q": "In what year was the JPEG standard published?", "collection": "computer-vision", "answerable": false, "expect": [], "kw": []}
+{"id": "un-08", "q": "What is the Harris corner detector response formula?", "collection": "computer-vision", "answerable": false, "expect": [], "kw": []}
+{"id": "un-09", "q": "What topics are covered in Unit 4?", "collection": "computer-vision", "answerable": false, "expect": [], "kw": []}
+{"id": "un-10", "q": "What is the MLflow model registry?", "collection": "computer-vision", "answerable": false, "expect": [], "kw": []}
+{"id": "un-11", "q": "How do generative adversarial networks train the generator?", "collection": "computer-vision", "answerable": false, "expect": [], "kw": []}
+{"id": "un-12", "q": "How many megabytes is an uncompressed 4K image?", "collection": "computer-vision", "answerable": false, "expect": [], "kw": []}
+{"id": "yt-01", "q": "What is MLflow described as in the course introduction?", "collection": "mlops", "answerable": true, "expect": [{"doc": "tVskbekONlw", "t": [0, 75]}], "kw": ["life cycle|lifecycle|standard"]}
+{"id": "yt-02", "q": "How do you log a single parameter like the learning rate in MLflow?", "collection": "mlops", "answerable": true, "expect": [{"doc": "tVskbekONlw", "t": [2380, 2455]}], "kw": ["log param|log_param"]}
+{"id": "yt-03", "q": "There are two ways to log parameters in MLflow. What are they?", "collection": "mlops", "answerable": true, "expect": [{"doc": "tVskbekONlw", "t": [2380, 2455]}], "kw": ["dictionary"]}
+{"id": "yt-04", "q": "What are the two ways of logging models?", "collection": "mlops", "answerable": true, "expect": [{"doc": "tVskbekONlw", "t": [3160, 3235]}], "kw": ["manual", "auto"]}
+{"id": "yt-05", "q": "What is a parent run and a child run?", "collection": "mlops", "answerable": true, "expect": [{"doc": "tVskbekONlw", "t": [3770, 3845]}], "kw": ["parent", "child"]}
+{"id": "yt-06", "q": "What kind of inferencing is an HTTP based model server ideal for?", "collection": "mlops", "answerable": true, "expect": [{"doc": "tVskbekONlw", "t": [4800, 4875]}], "kw": ["online|real-time|realtime|real time"]}
+{"id": "yt-07", "q": "What types of scorers can be used to evaluate LLM outputs?", "collection": "mlops", "answerable": true, "expect": [{"doc": "tVskbekONlw", "t": [8400, 8475]}], "kw": ["rule", "judge|llm"]}
+{"id": "yt-08", "q": "Which function is used to evaluate outputs against an evaluation dataset with a scorer?", "collection": "mlops", "answerable": true, "expect": [{"doc": "tVskbekONlw", "t": [9700, 9775]}], "kw": ["evaluate|ealuate"]}
+{"id": "yt-09", "q": "How do you create serving endpoints for registered models on Databricks?", "collection": "mlops", "answerable": true, "expect": [{"doc": "tVskbekONlw", "t": [16460, 16535]}], "kw": ["endpoint"]}
+{"id": "un-13", "q": "How do I deploy MLflow models on Kubernetes with autoscaling?", "collection": "mlops", "answerable": false, "expect": [], "kw": []}
+{"id": "un-14", "q": "How does Prometheus scrape MLflow metrics for Grafana dashboards?", "collection": "mlops", "answerable": false, "expect": [], "kw": []}

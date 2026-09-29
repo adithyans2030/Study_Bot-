@@ -1,0 +1,18 @@
+{"id":"fu-01","kind":"followup","collection":"computer-vision","first":"What is histogram equalization?","second":"What is its main limitation?","expect":[{"doc":"Unit_2","pages":[1]}]}
+{"id":"fu-02","kind":"followup","collection":"computer-vision","first":"Explain Otsu thresholding.","second":"How is it different from global thresholding?","expect":[{"doc":"Unit_2","pages":[1,4]}]}
+{"id":"fu-03","kind":"followup","collection":"computer-vision","first":"What is RANSAC?","second":"Where is it used in this unit?","expect":[{"doc":"Unit_3","pages":[3]}]}
+{"id":"fu-04","kind":"followup","collection":"computer-vision","first":"What is region growing?","second":"And what are its limitations?","expect":[{"doc":"Unit_2","pages":[2]}]}
+{"id":"fu-05","kind":"followup","collection":"computer-vision","first":"Tell me about watershed segmentation.","second":"Why does it over-segment?","expect":[{"doc":"Unit_2","pages":[2]}]}
+{"id":"fu-06","kind":"followup","collection":"computer-vision","first":"What is bilinear interpolation?","second":"How does that compare with bicubic?","expect":[{"doc":"Unit_3","pages":[4,5]}]}
+{"id":"fu-07","kind":"followup","collection":"computer-vision","first":"What is structure from motion?","second":"What are the steps in its pipeline?","expect":[{"doc":"Unit_3","pages":[1]}]}
+{"id":"fu-08","kind":"followup","collection":"computer-vision","first":"What is JPEG?","second":"And PNG?","expect":[{"doc":"Unit_1","pages":[5]}]}
+{"id":"fu-09","kind":"followup","collection":"computer-vision","first":"What is a raster image?","second":"What about vector images?","expect":[{"doc":"Unit_1","pages":[4,5]}]}
+{"id":"fu-10","kind":"followup","collection":"computer-vision","first":"What is a low-pass filter?","second":"What about high-pass?","expect":[{"doc":"Unit_2","pages":[3]}]}
+{"id":"fu-11","kind":"followup","collection":"computer-vision","first":"What is an epipole?","second":"Explain the epipolar plane too.","expect":[{"doc":"Unit_3","pages":[2]}]}
+{"id":"fu-12","kind":"followup","collection":"computer-vision","first":"What is image stitching?","second":"What challenges does it face?","expect":[{"doc":"Unit_3","pages":[4]}]}
+{"id":"fu-13","kind":"followup","collection":"computer-vision","first":"What is inpainting?","second":"Which approaches fill large missing regions?","expect":[{"doc":"Unit_3","pages":[5]}]}
+{"id":"fu-14","kind":"followup","collection":"computer-vision","first":"What is the Sobel operator?","second":"How does the Laplacian differ from it?","expect":[{"doc":"Unit_2","pages":[3,4]}]}
+{"id":"in-01","kind":"independent","collection":"computer-vision","first":"What is histogram equalization?","second":"What does the minimum filter do to bright regions?","expect":[{"doc":"Unit_2","pages":[2]}]}
+{"id":"in-02","kind":"independent","collection":"computer-vision","first":"What is JPEG?","second":"How many intensity levels can an 8-bit grayscale image represent?","expect":[{"doc":"Unit_1","pages":[4]}]}
+{"id":"in-03","kind":"independent","collection":"computer-vision","first":"What is RANSAC?","second":"What are the main computer vision tasks such as classification and detection?","expect":[{"doc":"Unit_1","pages":[2]}]}
+{"id":"in-04","kind":"independent","collection":"computer-vision","first":"What is Otsu thresholding?","second":"What is bit depth?","expect":[{"doc":"Unit_1","pages":[4]}]}
