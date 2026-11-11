@@ -13,6 +13,7 @@ from app import __version__
 from app.api import auth, chat, conversations, health, jobs, library, voice, study
 from app.okf import routes as okf_routes
 from app.okf.store import OKFStore
+from app.study.attempts_store import AttemptsStore
 from app.config import Settings
 from app.core import security
 from app.core.accounts import Accounts, LoginLimiter
@@ -113,6 +114,7 @@ def create_app(settings: Settings | None = None, bot: StudyBot | None = None,
     okf_store = OKFStore(bot.store)
     app.state.okf_store = okf_store
     runner.okf_store = okf_store
+    app.state.attempts_store = AttemptsStore(bot.store)
     app.state.limiter = LoginLimiter(settings.login_max_failures)
     app.state.embedder_error = None
     app.state.transcriber = transcriber

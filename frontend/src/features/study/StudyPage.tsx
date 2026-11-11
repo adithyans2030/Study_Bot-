@@ -3,6 +3,7 @@ import {
   ArrowLeft,
   BookOpen,
   Brain,
+  CalendarDays,
   CheckCircle2,
   ChevronLeft,
   ChevronRight,
@@ -17,11 +18,16 @@ import { Link, useParams } from "react-router-dom"
 import { Button } from "@/components/ui/button"
 import { useCollections } from "@/features/library/hooks"
 import {
+  type Flashcard,
+  type PlanNode,
   type QuizQuestion,
   useGenerateFlashcards,
+  useGeneratePlan,
   useGenerateQuiz,
   useGenerateSummary,
+  useRecordQuizAttempts,
 } from "./api"
+import { SourceTag } from "./SourceTag"
 
 const SB_BORDER = "var(--border)"
 const SB_MUTED = "var(--muted-foreground)"
@@ -32,7 +38,7 @@ export function StudyPage() {
   const collections = useCollections()
   const collection = collections.data?.find((c) => c.id === idNum)
 
-  const [tab, setTab] = useState<"summary" | "quiz" | "flashcards">("summary")
+  const [tab, setTab] = useState<"summary" | "quiz" | "flashcards" | "plan">("summary")
 
   return (
     <div style={{ maxWidth: 840, margin: "0 auto", padding: "32px 20px 80px" }}>
@@ -140,11 +146,33 @@ export function StudyPage() {
         >
           <Layers style={{ width: 15, height: 15 }} /> Flashcards
         </button>
+
+        <button
+          onClick={() => setTab("plan")}
+          style={{
+            padding: "8px 16px",
+            borderRadius: 8,
+            border: "none",
+            cursor: "pointer",
+            background: tab === "plan" ? "var(--primary)" : "transparent",
+            color: tab === "plan" ? "var(--primary-foreground)" : "var(--foreground)",
+            fontWeight: tab === "plan" ? 600 : 500,
+            fontSize: 13,
+            display: "flex",
+            alignItems: "center",
+            gap: 8,
+            fontFamily: "ui-sans-serif,system-ui,sans-serif",
+            transition: "all 0.15s ease",
+          }}
+        >
+          <CalendarDays style={{ width: 15, height: 15 }} /> Study Plan
+        </button>
       </div>
 
       {tab === "summary" && <SummaryPanel collectionId={idNum} />}
       {tab === "quiz" && <QuizPanel collectionId={idNum} />}
       {tab === "flashcards" && <FlashcardsPanel collectionId={idNum} />}
+      {tab === "plan" && <PlanPanel collectionId={idNum} />}
     </div>
   )
 }
@@ -295,6 +323,7 @@ function QuizPanel({ collectionId }: { collectionId: number }) {
   const [isSubmitted, setIsSubmitted] = useState(false)
 
   const mutation = useGenerateQuiz(collectionId)
+  const recordAttempts = useRecordQuizAttempts(collectionId)
 
   const handleGenerate = () => {
     mutation.mutate(
@@ -306,6 +335,18 @@ function QuizPanel({ collectionId }: { collectionId: number }) {
           setIsSubmitted(false)
         },
       }
+    )
+  }
+
+  const handleSubmit = () => {
+    setIsSubmitted(true)
+    // Fire-and-forget: the score shown above is computed locally and must not depend on this
+    // succeeding. Feeds the Study Plan tab's untested/weak ranking.
+    recordAttempts.mutate(
+      questions.map((q, idx) => ({
+        node_id: q.source?.node_id ?? null,
+        correct: selectedAnswers[idx] === q.correct_index,
+      }))
     )
   }
 
@@ -428,8 +469,11 @@ function QuizPanel({ collectionId }: { collectionId: number }) {
                   padding: 20,
                 }}
               >
-                <div style={{ fontSize: 14, fontWeight: 600, color: "var(--foreground)", marginBottom: 12 }}>
-                  {qIdx + 1}. {q.question}
+                <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", gap: 10, marginBottom: 12 }}>
+                  <div style={{ fontSize: 14, fontWeight: 600, color: "var(--foreground)" }}>
+                    {qIdx + 1}. {q.question}
+                  </div>
+                  <SourceTag source={q.source} />
                 </div>
 
                 <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
@@ -511,7 +555,7 @@ function QuizPanel({ collectionId }: { collectionId: number }) {
           <div style={{ display: "flex", justifyContent: "flex-end", gap: 12, marginTop: 8 }}>
             {!isSubmitted ? (
               <Button
-                onClick={() => setIsSubmitted(true)}
+                onClick={handleSubmit}
                 disabled={Object.keys(selectedAnswers).length < questions.length}
               >
                 Submit Answers
@@ -531,7 +575,7 @@ function QuizPanel({ collectionId }: { collectionId: number }) {
 function FlashcardsPanel({ collectionId }: { collectionId: number }) {
   const [topic, setTopic] = useState("")
   const [numCards, setNumCards] = useState(8)
-  const [cards, setCards] = useState<{ front: string; back: string; tags: string[] }[]>([])
+  const [cards, setCards] = useState<Flashcard[]>([])
   const [currentIdx, setCurrentIdx] = useState(0)
   const [isFlipped, setIsFlipped] = useState(false)
 
@@ -667,6 +711,10 @@ function FlashcardsPanel({ collectionId }: { collectionId: number }) {
               {isFlipped ? "Answer" : "Question"}
             </div>
 
+            <div style={{ position: "absolute", top: 16, right: 20 }} onClick={(e) => e.stopPropagation()}>
+              <SourceTag source={current.source} />
+            </div>
+
             <div
               style={{
                 fontFamily: isFlipped ? "ui-sans-serif,system-ui,sans-serif" : "'Georgia',serif",
@@ -725,6 +773,111 @@ function FlashcardsPanel({ collectionId }: { collectionId: number }) {
               Next <ChevronRight style={{ width: 14, height: 14 }} />
             </Button>
           </div>
+        </div>
+      )}
+    </div>
+  )
+}
+
+function defaultDeadline(): string {
+  return new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10)
+}
+
+function statusStyle(status: PlanNode["status"]): { bg: string; border: string } {
+  if (status === "known") return { bg: "rgba(46, 204, 113, 0.15)", border: "#2ecc71" }
+  if (status === "weak") return { bg: "rgba(231, 76, 60, 0.15)", border: "#e74c3c" }
+  return { bg: "var(--muted)", border: SB_BORDER }
+}
+
+function PlanPanel({ collectionId }: { collectionId: number }) {
+  const [deadline, setDeadline] = useState(defaultDeadline)
+  const mutation = useGeneratePlan(collectionId)
+
+  return (
+    <div>
+      <div style={{ background: "var(--card)", border: `1px solid ${SB_BORDER}`, borderRadius: 14, padding: 22, marginBottom: 24 }}>
+        <h3 style={{ fontFamily: "'Georgia',serif", fontSize: 17, fontWeight: 700, margin: "0 0 6px", color: "var(--foreground)" }}>
+          Exam-Driven Study Plan
+        </h3>
+        <p style={{ fontFamily: "ui-sans-serif,system-ui,sans-serif", fontSize: 13, color: SB_MUTED, margin: "0 0 16px" }}>
+          A day-by-day schedule built from your quiz results: untested and weak topics come first.
+        </p>
+
+        <div style={{ maxWidth: 220, marginBottom: 16 }}>
+          <label style={{ display: "block", fontSize: 12, fontWeight: 600, color: SB_MUTED, marginBottom: 6 }}>
+            Exam date
+          </label>
+          <input
+            type="date"
+            value={deadline}
+            onChange={(e) => setDeadline(e.target.value)}
+            style={{
+              width: "100%",
+              padding: "8px 12px",
+              borderRadius: 8,
+              border: `1px solid ${SB_BORDER}`,
+              background: "var(--background)",
+              color: "var(--foreground)",
+              fontSize: 13,
+              boxSizing: "border-box",
+            }}
+          />
+        </div>
+
+        <Button onClick={() => mutation.mutate(deadline)} disabled={mutation.isPending} className="gap-2">
+          <CalendarDays style={{ width: 14, height: 14 }} />
+          {mutation.isPending ? "Building Plan..." : "Generate Plan"}
+        </Button>
+
+        {mutation.isError && (
+          <p style={{ color: "var(--destructive)", fontSize: 13, marginTop: 10 }}>
+            {mutation.error.message}
+          </p>
+        )}
+      </div>
+
+      {mutation.data && (
+        <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+          {mutation.data.days.map((day) => (
+            <div
+              key={day.day_index}
+              style={{ background: "var(--card)", border: `1px solid ${SB_BORDER}`, borderRadius: 14, padding: 20 }}
+            >
+              <h4 style={{ fontFamily: "'Georgia',serif", fontSize: 15, fontWeight: 700, margin: "0 0 10px", color: "var(--foreground)" }}>
+                Day {day.day_index + 1} - {day.date}
+              </h4>
+              {day.nodes.length === 0 ? (
+                <p style={{ fontSize: 12, color: SB_MUTED }}>Nothing scheduled.</p>
+              ) : (
+                <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+                  {day.nodes.map((node) => {
+                    const style = statusStyle(node.status)
+                    return (
+                      <div
+                        key={node.node_id}
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "space-between",
+                          gap: 10,
+                          padding: "8px 12px",
+                          borderRadius: 8,
+                          border: `1px solid ${style.border}`,
+                          background: style.bg,
+                          fontSize: 13,
+                        }}
+                      >
+                        <span style={{ color: "var(--foreground)" }}>{node.title}</span>
+                        <span style={{ fontSize: 10, fontWeight: 700, textTransform: "uppercase", color: SB_MUTED }}>
+                          {node.status}
+                        </span>
+                      </div>
+                    )
+                  })}
+                </div>
+              )}
+            </div>
+          ))}
         </div>
       )}
     </div>
